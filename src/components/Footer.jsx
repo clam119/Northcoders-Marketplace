@@ -1,7 +1,7 @@
 export default function Footer () {
     return (
     
-        <footer className="pt-auto bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
+        <footer className="bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
         <div className="sm:flex sm:items-center sm:justify-between">
             <a href="https://northcoders.com/" className="flex items-center mb-4 sm:mb-0">
                 <img src="https://svgshare.com/i/nen.svg" className="mr-3 h-8" alt="Northcoders Logo" />
