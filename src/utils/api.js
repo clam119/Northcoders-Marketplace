@@ -1,21 +1,20 @@
 import axios from 'axios'
 
-
 const marketplaceApi = axios.create({
-    baseURL: "http://localhost:9090/api"
+    baseURL: "https://clam119-nc-marketplace-api.herokuapp.com/api/"
 })
 
 export const fetchAllItems = () => {
     return marketplaceApi.get('/items')
     .then((response) => {
-        return response.data;
+        return response.data.items;
     })
 }
 
 export const fetchItemById = (item_id) => {
     return marketplaceApi.get(`/items/${item_id}`)
     .then((response) => {
-        return response.data
+        return response.data.item
     })
 }
 
@@ -29,7 +28,6 @@ export const deleteItemById = (item_id) => {
 export const fetchAllUsers = () => {
     return marketplaceApi.get('/users')
     .then((response) => {
-        console.log(response.data.users)
         return response.data.users;
     })
 }
