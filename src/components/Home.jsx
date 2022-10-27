@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Home () {
     return(
         <section>
@@ -7,7 +9,7 @@ export default function Home () {
 				<h1 className="text-3xl md:text-5xl p-2 text-black-300 tracking-loose">Northcoders</h1>
 				<h2 className="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">Marketplace</h2>
 				<p className="text-sm md:text-base text-black-50 mb-4">Don't want to throw away your old goodies? Why not give them a new home, now!</p>
-				<a href="#" className="bg-transparent hover:bg-yellow-300 text-black-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent">Explore Now</a>
+				<Link to = "/marketplace" className="bg-transparent hover:bg-yellow-300 text-black-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent">Explore Now </Link>
 			</div>
 			<div className="p-8 mt-12 mb-0 md:mb-0 md:mt-0 ml-0 md:ml-12 lg:w-2/3  justify-center">
 				<div className="h-48 flex flex-wrap content-center"> 
