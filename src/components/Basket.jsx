@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 export default function Basket () {
     const { username } = useContext(UserContext);
     const { basket, setBasket, finalPrice} = useContext(BasketContext);
-    const [ isEmpty, setIsEmpty ] = useState(true);
 
     if(basket.length === 0) {
         return (
