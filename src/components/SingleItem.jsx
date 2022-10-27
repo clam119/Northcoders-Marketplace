@@ -2,12 +2,9 @@
 import * as API from '../utils/api';
 import { useParams } from 'react-router-dom'
 import { useState, useEffect, useContext } from 'react';
-import { UserContext } from './context/UserContext';
 import { BasketContext } from './context/BasketContext';
-import ItemCard from './ItemCard';
 
 export default function SingleItem () {
-    const { username } = useContext(UserContext);
     const { basket, setBasket, finalPrice, setFinalPrice } = useContext(BasketContext);
     const [item, setItem] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -15,15 +12,16 @@ export default function SingleItem () {
     let { item_id } = useParams();
     
     const addToBasket = () => {
+
         setBasket((currentItems) => {
             const copyOfCurrent = [...currentItems];
             copyOfCurrent.push(item);
             return copyOfCurrent;
         })
+
         setFinalPrice((currentPrice) => {
-            const newPrice = currentPrice + price;
-            return newPrice;
-        });
+            return currentPrice + price + finalPrice;
+        })
        
     }
 
@@ -43,17 +41,7 @@ export default function SingleItem () {
     else return (
         <div className="md:flex items-start justify-center py-12 2xl:px-20 md:px-6 px-4">
             <div className="min-h-fit max-h-screen xl:w-2/6 lg:w-2/5 w-80 md:block hidden">
-                <img className="w-full" alt="image of a girl posing" src={img_url} />
-            </div>
-
-            <div className="md:hidden">
-                <img className="w-full" alt="image of a girl posing" src="https://i.ibb.co/QMdWfzX/component-image-one.png" />
-                <div className="flex items-center justify-between mt-3 space-x-4 md:space-x-0">
-                    <img alt="image-tag-one" className="md:w-48 md:h-48 w-full" src="https://i.ibb.co/cYDrVGh/Rectangle-245.png" />
-                    <img alt="image-tag-one" className="md:w-48 md:h-48 w-full" src="https://i.ibb.co/f17NXrW/Rectangle-244.png" />
-                    <img alt="image-tag-one" className="md:w-48 md:h-48 w-full" src="https://i.ibb.co/cYDrVGh/Rectangle-245.png" />
-                    <img alt="image-tag-one" className="md:w-48 md:h-48 w-full" src="https://i.ibb.co/f17NXrW/Rectangle-244.png" />
-                </div>
+                <img className="w-full" alt={description} src={img_url} />
             </div>
 
             <div className="xl:w-2/5 md:w-1/2 lg:ml-8 md:ml-6 md:mt-0 mt-6">
@@ -73,7 +61,7 @@ export default function SingleItem () {
                 </div>
                 
             </div>
-                <button onClick={addToBasket} className="dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700 focus:outline-none">
+                <button onClick={addToBasket} className="dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700">
                     <svg className="mr-3 text-white dark:text-gray-900" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.02301 7.18999C7.48929 6.72386 7.80685 6.12992 7.93555 5.48329C8.06425 4.83666 7.9983 4.16638 7.74604 3.55724C7.49377 2.94809 7.06653 2.42744 6.51835 2.06112C5.97016 1.6948 5.32566 1.49928 4.66634 1.49928C4.00703 1.49928 3.36252 1.6948 2.81434 2.06112C2.26615 2.42744 1.83891 2.94809 1.58665 3.55724C1.33439 4.16638 1.26843 4.83666 1.39713 5.48329C1.52583 6.12992 1.8434 6.72386 2.30968 7.18999L4.66634 9.54749L7.02301 7.18999Z" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
                     <path d="M4.66699 4.83333V4.84166" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
