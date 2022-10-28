@@ -8,6 +8,17 @@ export default function Basket () {
     const { username } = useContext(UserContext);
     const { basket, setBasket, finalPrice} = useContext(BasketContext);
 
+    const handleRemove = (event) => {
+        const basketItemID = parseInt(event.target.id);
+        setBasket((currentItems) => {
+            const copyOfCurrent = [...currentItems];
+            const updatedBasket = copyOfCurrent.filter((item, index) => {
+                return index !== basketItemID;
+            })
+            return updatedBasket;
+        })
+    }
+
     if(basket.length === 0) {
         return (
             <div className=" min-h-screen w-full">
@@ -47,9 +58,9 @@ else
         <div className="md:w-8/12 w-full lg:px-8 lg:py-14 md:px-6 px-4 md:py-8 py-4 bg-white dark:bg-gray-800 overflow-y-hidden overflow-x-hidden lg:h-screen h-auto" id="scroll">
             <p className="lg:text-4xl text-3xl font-black leading-10 text-gray-800 dark:text-white pt-3">Items</p>
             <div className="grid grid-cols-2 gap-5 border-gray-50" >
-                {basket.map(({ item_name, description, img_url, price }) => {
+                {basket.map(({ item_name, description, img_url, price }, index) => {
                     return (
-                    <>
+                <div className="item-container">
                     <div className="md:w-4/12 2xl:w-1/4 w-full">
                      <img src={img_url} alt="Black Leather Bag" className="h-full object-center object-cover md:block hidden" />
                     </div>
@@ -59,13 +70,13 @@ else
                         </div>
                         <p className="w-full text-xs leading-3 text-gray-600 dark:text-white">{ description }</p>
                     <div className="flex items-center justify-between pt-5">
-                    <div className="flex itemms-center">
-                        <p className="text-xs leading-3 underline text-red-500 pl-5 cursor-pointer">REMOVE HERE</p>
+                    <div className="flex items-center">
+                        <p id={index} onClick={ handleRemove } className="text-xs leading-3 underline text-red-500 pl-5 cursor-pointer">REMOVE ITEM</p>
                     </div>
                     <p className="text-base font-black leading-none text-gray-800 dark:text-white">{`£${price}.00`}</p> 
                     </div>
                     </div>
-                    </>)
+                </div>)
                 })}
             </div>
             </div>
