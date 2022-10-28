@@ -25,7 +25,7 @@ function App() {
               <Route path = "/" element={ <Home />} />
               <Route path = "/login" element={ <Login />} />
               <Route path = "/marketplace" element={ <Marketplace />} />
-              <Route path = "/items/:item_id" element={ <SingleItem setFinalPrice={setFinalPrice} />} />
+              <Route path = "/items/:item_id" element={ <SingleItem />} />
               <Route path = "/basket" element = {<Basket finalPrice={finalPrice} />} />
               <Route path = "/user/signup" element ={<Signup />} />
             </Routes>
