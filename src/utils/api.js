@@ -33,7 +33,11 @@ export const fetchAllUsers = () => {
 }
 
 export const createUser = (username, avatar_url) => {
-    return marketplaceApi.post('/users')
+    const newUserObject = {
+        username,
+        avatar_url
+    }
+    return marketplaceApi.post('/users', newUserObject)
     .then((response) => {
         return response.data.users;
     })
