@@ -5,7 +5,7 @@ import { useState, useEffect, useContext } from 'react';
 import { BasketContext } from './context/BasketContext';
 
 export default function SingleItem () {
-    const { basket, setBasket, finalPrice, setFinalPrice } = useContext(BasketContext);
+    const { setBasket, setFinalPrice } = useContext(BasketContext);
     const [item, setItem] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const { item_name, img_url, description, price, category_name } = item;
@@ -20,7 +20,8 @@ export default function SingleItem () {
         })
 
         setFinalPrice((currentPrice) => {
-            return currentPrice + price + finalPrice;
+            const newPrice = currentPrice + price;
+            return newPrice
         })
        
     }
@@ -61,7 +62,7 @@ export default function SingleItem () {
                 </div>
                 
             </div>
-                <button onClick={addToBasket} className="dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700">
+                <button onClick={() => { addToBasket() }} className="dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700">
                     <svg className="mr-3 text-white dark:text-gray-900" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.02301 7.18999C7.48929 6.72386 7.80685 6.12992 7.93555 5.48329C8.06425 4.83666 7.9983 4.16638 7.74604 3.55724C7.49377 2.94809 7.06653 2.42744 6.51835 2.06112C5.97016 1.6948 5.32566 1.49928 4.66634 1.49928C4.00703 1.49928 3.36252 1.6948 2.81434 2.06112C2.26615 2.42744 1.83891 2.94809 1.58665 3.55724C1.33439 4.16638 1.26843 4.83666 1.39713 5.48329C1.52583 6.12992 1.8434 6.72386 2.30968 7.18999L4.66634 9.54749L7.02301 7.18999Z" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
                     <path d="M4.66699 4.83333V4.84166" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
