@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-useless-concat */
 import * as API from '../utils/api';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
