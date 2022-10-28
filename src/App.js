@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import Marketplace from './components/Marketplace';
 import Login from './components/Login';
+import Signup from './components/Signup';
 import SingleItem from './components/SingleItem';
 import Basket from './components/Basket';
 import { UserContext } from './components/context/UserContext';
@@ -25,7 +26,8 @@ function App() {
               <Route path = "/login" element={ <Login />} />
               <Route path = "/marketplace" element={ <Marketplace />} />
               <Route path = "/items/:item_id" element={ <SingleItem setFinalPrice={setFinalPrice} />} />
-              <Route path ="/basket" element = {<Basket finalPrice={finalPrice} />} />
+              <Route path = "/basket" element = {<Basket finalPrice={finalPrice} />} />
+              <Route path = "/user/signup" element ={<Signup />} />
             </Routes>
           <Footer/>
      </BrowserRouter>
