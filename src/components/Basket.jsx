@@ -1,12 +1,10 @@
 // https://tailwindcomponents.com/component/tailwind-css-404-error-page - 404 Error Source
 // https://tailwindcomponents.com/component/free-tailwind-css-shopping-carts-component - Shopping Cart Source
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { BasketContext } from './context/BasketContext';
-import { UserContext } from './context/UserContext';
 import { Link } from 'react-router-dom';
 export default function Basket () {
-    const { username } = useContext(UserContext);
-    const { basket, setBasket, finalPrice} = useContext(BasketContext);
+    const { basket, setBasket, finalPrice } = useContext(BasketContext);
 
     const handleRemove = (event) => {
         const basketItemID = parseInt(event.target.id);
