@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/clam119/Northcoders-Marketplace/static/css/main.7076cbcd.css",
+    "main.js": "/clam119/Northcoders-Marketplace/static/js/main.1fdf37c5.js",
+    "index.html": "/clam119/Northcoders-Marketplace/index.html",
+    "main.7076cbcd.css.map": "/clam119/Northcoders-Marketplace/static/css/main.7076cbcd.css.map",
+    "main.1fdf37c5.js.map": "/clam119/Northcoders-Marketplace/static/js/main.1fdf37c5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7076cbcd.css",
+    "static/js/main.1fdf37c5.js"
+  ]
+}
