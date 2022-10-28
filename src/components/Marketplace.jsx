@@ -6,7 +6,7 @@ import { BasketContext } from './context/BasketContext';
 
 export default function Marketplace() {
     const { username } = useContext(UserContext);
-    const { setFinalPrice } = useContext(BasketContext)
+    const { finalPrice, setFinalPrice } = useContext(BasketContext)
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -15,10 +15,9 @@ export default function Marketplace() {
         API.fetchAllItems()
         .then((itemsData) => {
             setItems(itemsData);
-            setFinalPrice(0);
             setIsLoading(false);
         });
-    }, [username, setFinalPrice])
+    }, [username])
 
     if(isLoading) return (
         <h1> Currently Loading Items </h1>
