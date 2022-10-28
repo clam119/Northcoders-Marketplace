@@ -31,3 +31,10 @@ export const fetchAllUsers = () => {
         return response.data.users;
     })
 }
+
+export const createUser = (username, avatar_url) => {
+    return marketplaceApi.post('/users')
+    .then((response) => {
+        return response.data.users;
+    })
+}
