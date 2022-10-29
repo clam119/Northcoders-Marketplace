@@ -1,7 +1,7 @@
 {
   "name": "northcoders-marketplace",
   "version": "0.1.0",
-  "homepage": "https://github.com/clam119/Northcoders-Marketplace",
+  "homepage": "https://github.io/clam119/Northcoders-Marketplace",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
